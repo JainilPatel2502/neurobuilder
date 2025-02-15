@@ -1,0 +1,22 @@
+ok now listen i want a dictionary of the following key value pair
+data{
+  weight:{
+layer1:[[],[],...,[]]
+layer2:[[],[],...[]]
+
+},
+bias:{
+    layer1:[],
+    layer2:[]
+},
+gradients{
+    layer1:{
+        weightGrad:[[],[],...,[]],
+        biasGrad:[]
+    },
+    layer2:{
+        weightGrad:[[],[]...,[]],
+        biasGrad:[]
+    }
+}
+}

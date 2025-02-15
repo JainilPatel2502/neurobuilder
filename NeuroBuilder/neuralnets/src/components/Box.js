@@ -1,8 +1,16 @@
 import Neuron from "./Neuron";
-
-function Box({ neurons }) {
+import styles from "./Box.module.css";
+function Box({ neurons, maxNeuron }) {
   return (
-    <div>
+    <div
+      style={{
+        height: `${maxNeuron * 90}px`,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center ",
+        justifyContent: "center",
+      }}
+    >
       {Array.from({ length: neurons }, (_, index) => (
         <Neuron key={index} />
       ))}

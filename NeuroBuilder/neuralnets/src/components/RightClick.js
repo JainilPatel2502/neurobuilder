@@ -1,6 +1,12 @@
 import React from "react";
 
-function RightClick({ menuPosition, showMenu, setActivationFunction ,setInitialization ,setRegularization }) {
+function RightClick({
+  menuPosition,
+  showMenu,
+  setActivationFunction,
+  setInitialization,
+  setRegularization,
+}) {
   if (!showMenu) return null;
 
   const style = {
@@ -14,15 +20,30 @@ function RightClick({ menuPosition, showMenu, setActivationFunction ,setInitiali
   };
 
   return (
-    <div style={style} >
+    <div style={style}>
       <ul style={{ listStyleType: "none", margin: 0, padding: "5px" }}>
+        <li onClick={() => setActivationFunction("Sigmoid")}>Sigmoid</li>
         <li onClick={() => setActivationFunction("ReLU")}>ReLU</li>
+        <li onClick={() => setActivationFunction("PReLU")}>PReLU</li>
+        <li onClick={() => setActivationFunction("ELU")}>ELU</li>
         <li onClick={() => setActivationFunction("TanH")}>TanH</li>
+        <li onClick={() => setActivationFunction("Softmax")}>Softmax</li>
+        <li onClick={() => setActivationFunction("Swish")}>Swish</li>
         <li onClick={() => setActivationFunction("LeakyReLU")}>LeakyReLU</li>
-        <li onClick={() => setInitialization("He Normalization")}>He Normalization</li>
-        <li onClick={() => setRegularization("L1 regularization")}>L1 regularization</li>
-        <li onClick={() => setRegularization("L2 regularization")}>L2 regularization</li>
-        <input/>
+        <li onClick={() => setInitialization("he")}>He Normalization</li>
+        <li onClick={() => setInitialization("Dirac Initialization")}>
+          Dirac Initialization
+        </li>
+        <li onClick={() => setInitialization("Orthogonal Initialization")}>
+          Orthogonal Initialization
+        </li>
+        <li onClick={() => setInitialization("xavier")}>Xavier</li>
+        <li onClick={() => setRegularization("L1 regularization")}>
+          L1 regularization
+        </li>
+        <li onClick={() => setRegularization("L2 regularization")}>
+          L2 regularization
+        </li>
       </ul>
     </div>
   );

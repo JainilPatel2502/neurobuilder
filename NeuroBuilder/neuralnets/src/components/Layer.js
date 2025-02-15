@@ -8,7 +8,8 @@ function Layer({
   index,
   setActivationsPerLayer,
   setInitializationPerLayer,
-  setRegularizationPerLayer
+  setRegularizationPerLayer,
+  maxNeuron,
 }) {
   const [neurons, setNeurons] = useState(1);
   const [activationFunction, setActivationFunction] = useState("ReLU");
@@ -22,7 +23,6 @@ function Layer({
     setMenuPosition({ x: e.pageX, y: e.pageY });
     setShowMenu(true);
   };
-
   const handleClick = () => {
     if (showMenu) {
       setShowMenu(false);
@@ -38,7 +38,6 @@ function Layer({
     },
     [neurons, index, setNeuronsPerLayer, intialization, activationFunction]
   );
-
   useEffect(
     function () {
       setActivationsPerLayer((prev) => {
@@ -59,7 +58,6 @@ function Layer({
     },
     [regularization, index, setRegularizationPerLayer]
   );
-
   useEffect(
     function () {
       setInitializationPerLayer((prev) => {
@@ -75,10 +73,9 @@ function Layer({
       className={styles.layer}
       onContextMenu={handleRightClick}
       onClick={handleClick}
-      onDoubleClick={handleRightClick}
     >
       <Counter neurons={neurons} setNeurons={setNeurons} />
-      <Box neurons={neurons} />
+      <Box neurons={neurons} maxNeuron={maxNeuron} />
       <RightClick
         menuPosition={menuPosition}
         showMenu={showMenu}
@@ -86,9 +83,7 @@ function Layer({
         setActivationFunction={setActivationFunction}
         setInitialization={setInitialization}
       />
-      <p>
-        {intialization},{activationFunction},{regularization}
-      </p>
+      <p>{/* {intialization},{activationFunction},{regularization} */}</p>
     </div>
   );
 }
