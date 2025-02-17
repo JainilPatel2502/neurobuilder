@@ -58,6 +58,7 @@ function App() {
   return (
     <div>
       <NeuralNet
+        neuronsPerLayer={neuronsPerLayer}
         setNeuronsPerLayer={setNeuronsPerLayer}
         setActivationsPerLayer={setActivationsPerLayer}
         setInitializationPerLayer={setInitializationPerLayer}

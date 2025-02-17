@@ -1,0 +1,35 @@
+.box {
+  align-items: center;
+}
+.neuron {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-color: cornflowerblue;
+  border-radius: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fl {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+}
+.networksvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  pointer-events: none;
+}
+
+.networksvg line {
+  stroke: cornflowerblue;
+  stroke-width: 1;
+  opacity: 0.3;
+}

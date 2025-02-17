@@ -1,7 +1,7 @@
 import Counter from "./Counter";
 import Box from "./Box";
 import { useEffect, useState } from "react";
-import styles from "./Layer.module.css";
+import "./main.css";
 import RightClick from "./RightClick";
 function Layer({
   setNeuronsPerLayer,
@@ -68,12 +68,9 @@ function Layer({
     },
     [index, intialization, setInitializationPerLayer]
   );
+
   return (
-    <div
-      className={styles.layer}
-      onContextMenu={handleRightClick}
-      onClick={handleClick}
-    >
+    <div onContextMenu={handleRightClick} onClick={handleClick} className="lay">
       <Counter neurons={neurons} setNeurons={setNeurons} />
       <Box neurons={neurons} maxNeuron={maxNeuron} />
       <RightClick

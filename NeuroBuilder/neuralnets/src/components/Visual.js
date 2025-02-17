@@ -103,7 +103,7 @@ function Visual() {
             contours: {
               start: mini, // Minimum contour value
               end: maxi, // Maximum contour value
-              size: 0.0015, // Step size between contours
+              size: 0.1, // Step size between contours
             },
           },
         ]}

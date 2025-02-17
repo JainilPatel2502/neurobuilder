@@ -4,14 +4,14 @@ import { useNavigate } from "react-router";
 const CSVEditor = () => {
   const [data, setData] = useState([]);
   const [headers, setHeaders] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
 
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-      setIsLoading(true);
+
       fetch("http://127.0.0.1:5000/upload", {
         method: "POST",
         body: formData,
@@ -27,12 +27,10 @@ const CSVEditor = () => {
         })
         .catch((error) => console.error("Error uploading file:", error));
     }
-    setIsLoading(false);
   };
 
   // Transform Column
   const handleTransform = (colName, operation) => {
-    setIsLoading(true);
     fetch("http://127.0.0.1:5000/transform", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,7 +45,6 @@ const CSVEditor = () => {
         }
       })
       .catch((error) => console.error("Error transforming column:", error));
-    setIsLoading(false);
   };
   const navigate = useNavigate();
   // Download CSV

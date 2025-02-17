@@ -1,5 +1,5 @@
 import Neuron from "./Neuron";
-import styles from "./Box.module.css";
+import "./main.css";
 function Box({ neurons, maxNeuron }) {
   return (
     <div

@@ -1,8 +1,8 @@
-import styles from "./Neuron.module.css";
+import "./main.css";
 function Neuron() {
   return (
-    <div className={styles.fl}>
-      <div className={styles.neuron}>{Math.random().toLocaleString()}</div>
+    <div className="fl">
+      <div className="neuron">{Math.random().toLocaleString()}</div>
     </div>
   );
 }
