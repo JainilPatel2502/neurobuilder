@@ -50,7 +50,6 @@ function App() {
         if (max < neuronsPerLayer[i]) max = neuronsPerLayer[i];
       }
       // console.log(max);
-      // setMaxNeuron(max);
       setMaxNeuron(max);
     },
     [neuronsPerLayer, setMaxNeuron]
@@ -66,45 +65,70 @@ function App() {
         maxNeuron={maxNeuron}
       />
       <LayerCounter />
-      <button onClick={handlePrintDetails}>Network Details</button>
-      <button onClick={build}>Build Network</button>
-      Learning Rate
-      <input onChange={(e) => setLr(Number(e.target.value))} />
-      <select onChange={(e) => setLossFn(e.target.value)} defaultValue="">
-        <option value="" disabled>
-          Select Loss Function
-        </option>
-        <option value="Huber">Huber</option>
-        <option value="MSE">MSE</option>
-        <option value="MAE">MAE</option>
-        <option value="Categorical Crossentropy">
-          Categorical Crossentropy
-        </option>
-        <option value="Binary Cross Entropy">Binary Cross Entropy</option>
-      </select>
-      <select onChange={(e) => setOptimizer(e.target.value)}>
-        <option value="" disabled>
-          Select Optimzer
-        </option>
-        <option value="SGD">SGD</option>
-        <option value="RMS Prop">RMS Prop</option>
-        <option value="Adam">Adam</option>
-        <option value="AdamW">AdamW </option>
-        <option value="Adadelta">Adadelta</option>
-        <option value="LBFGS ">Limited-memory BFGS</option>
-      </select>
-      <button onClick={handleCode}>Code</button>
-      Epochs
-      <input
-        value={epochs}
-        onChange={(e) => setEpochs(Number(e.target.value))}
-      />
-      Batch Size
-      <input
-        value={batchSize}
-        onChange={(e) => setBatchSize(Number(e.target.value))}
-      />
-      <button onClick={() => navigate("/plots")}>Plot</button>
+      <div id="top-controls">
+        <div className="control">
+          <label>Learning Rate</label>
+          <input onChange={(e) => setLr(Number(e.target.value))} />
+        </div>
+        <div className="control">
+          <label>Loss Functions</label>
+          <select onChange={(e) => setLossFn(e.target.value)} defaultValue="">
+            <option value="" disabled>
+              Select Loss Function
+            </option>
+            <option value="Huber">Huber</option>
+            <option value="MSE">MSE</option>
+            <option value="MAE">MAE</option>
+            <option value="Categorical Crossentropy">
+              Categorical Crossentropy
+            </option>
+            <option value="Binary Cross Entropy">Binary Cross Entropy</option>
+          </select>
+        </div>
+        <div className="control">
+          <label>Optimizers</label>
+          <select onChange={(e) => setOptimizer(e.target.value)}>
+            <option value="" disabled>
+              Select Optimzer
+            </option>
+            <option value="SGD">SGD</option>
+            <option value="RMS Prop">RMS Prop</option>
+            <option value="Adam">Adam</option>
+            <option value="AdamW">AdamW </option>
+            <option value="Adadelta">Adadelta</option>
+            <option value="LBFGS ">Limited-memory BFGS</option>
+          </select>
+        </div>
+
+        <div className="control">
+          <label>Epochs</label>
+
+          <input
+            value={epochs}
+            onChange={(e) => setEpochs(Number(e.target.value))}
+          />
+        </div>
+        <div className="control">
+          <label>Batch Size</label>
+
+          <input
+            value={batchSize}
+            onChange={(e) => setBatchSize(Number(e.target.value))}
+          />
+        </div>
+        <button className="but" onClick={() => navigate("/plots")}>
+          Plot
+        </button>
+        <button className="but" onClick={handleCode}>
+          Code
+        </button>
+        <button className="but" onClick={handlePrintDetails}>
+          Network Details
+        </button>
+        <button className="but" onClick={build}>
+          Build Network
+        </button>
+      </div>
     </div>
   );
 }
